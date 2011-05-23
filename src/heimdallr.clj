@@ -7,7 +7,7 @@
   "Small lib for Context-Oriented Programming."
   )
 
-(def #^{:doc "This dynamic var holds the current ContextStack for a thread."}
+(def #^{:doc "This dynamic var holds the current Context Stack for a thread."}
   *context* (with-meta '() {:type ::ContextStack}))
 (def *layered-fn*)
 
@@ -30,7 +30,7 @@ Returns the popped layer."
 
 (defmacro deflayer
 "Defines a Layer.
-The <requires> param must be a vector of layers that are required for this layer to be executed."
+The <requires> param must be a vector of layers that are required for this layer to work."
   ([sym] `(def ~sym (with-meta {:name '~sym, :requires []} {:type ::Layer})))
   ([sym requires] `(def ~sym (with-meta {:name '~sym, :requires '~requires} {:type ::Layer})))
   )
@@ -75,7 +75,7 @@ The latter layers will be nested inside the former ones as in:
 
 (defmacro deflayered
 "Defines a layered function. For the base definition, simply don't provide a layer.
-For layer dependant definitions, pass a layer before the args vector and sexps.
+For layer-dependant definitions, pass a layer before the args vector and sexps.
 An optional doc-string can be provided for the base definition."
   [sym & extra]
   (let [ftoken (first extra)
