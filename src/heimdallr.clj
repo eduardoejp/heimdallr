@@ -3,10 +3,8 @@
 ;Email: eduardoejp@gmail.com
 ;License: EPL 1.0 -> http://www.eclipse.org/legal/epl-v10.html
 
-(ns
-  #^{:author "Eduardo Emilio Julián Pereyra"
-     :doc "Small lib for Context-Oriented Programming."}
-  heimdallr)
+(ns heimdallr
+  "Small lib for Context-Oriented Programming.")
 
 (def #^{:doc "This dynamic var holds the current Context Stack for a thread."}
   *context* (with-meta '() {:type ::ContextStack}))
