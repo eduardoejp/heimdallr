@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <title>heimdallr - heimdallr nil API documentation</title>
+    <link href="static/favicon.png" rel="icon" />
+    <link href="static/favicon.png" rel="shortcut icon" />
+    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <!-- TODO: are we using these (from clojure.org)? If so, add the files -->
+    <script src="file/view/code_highlighter.js" type="text/javascript"></script>
+    <script src="file/view/clojure.js" type="text/javascript"></script>
+    <style>.menuWrapper{height: 36px;}</style>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://www.wikispaces.com/_/2009051601/s/internal_ie.css" type="text/css" />
+    <![endif]-->
+  </head>
+<!--
+This document was auto-generated from the source by the clojure autodoc system.
+To report errors or ask questions about the overall documentation structure, formatting,
+etc., contact Tom Faulhaber (google mail name: tomfaulhaber).
+For errors in the documentation of a particular namespace, contact the author of that
+namespace.
+-->
+  <body>
+    <div id="AllContentContainer">
+      <div id="Header">
+	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
+	<h1><a title="page header title" id="page-header" href="index.html">heimdallr</a></h1>
+      </div>
+      <div id="leftcolumn"><div style="text-align: center;"></div>
+<div class="menu">
+  <div class="WikiCustomNav WikiElement wiki">
+    <span class="toc-header"><span id="project-name">heimdallr</span> <span id="version"></span> API</span><br />
+    <ul>
+      <li><a class="wiki_link" href="index.html">Overview</a></li>
+      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+    </ul>
+    <span class="toc-header">Namespaces</span>
+    <ul id="left-sidebar-list">
+      <li><a href="heimdallr-api.html" class="wiki_link">heimdallr</a></li>
+    </ul>
+    
+    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+  </div>
+</div>
+</div>
+      <div id="rightcolumn">
+	<div id="Content">
+	  <div class="contentBox"><div class="innerContentBox">
+              <div id="content_view" class="wiki wikiPage">
+                <div id="right-sidebar"><div id="toc">
+  <h1 class="nopad">Table of Contents</h1>
+  <div style="margin-left: 1em;" class="toc-section">
+    <a href="#toc0">Overview</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/*context*">*context*</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/deflayer">deflayer</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/deflayered">deflayered</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/layer?">layer?</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/pop-layer">pop-layer</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/proceed">proceed</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/push-layer">push-layer</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#heimdallr/with-context">with-context</a>
+    </div>
+    <br />
+  </div>
+</div>
+</div>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">heimdallr</span>
+  - <span id="header-project">heimdallr</span> <span id="header-version"></span> (<span id="header-status"></span>)
+  </h1>
+
+<br />Usage:
+<pre>
+(ns your-namespace
+  (:require <span id="long-name">heimdallr</span>))
+</pre><pre>
+</pre><h2>Overview</h2>
+<pre id="namespace-docstr">Small lib for Context-Oriented Programming.</pre>
+
+
+<br />
+<h2>Public Variables and Functions</h2>
+<div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/*context*">*context*</h2>
+  <span id="var-type">var</span><br />
+  <pre id="var-usage"></pre>
+  <pre id="var-docstr">This dynamic var holds the current Context Stack for a thread.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L10" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/deflayer">deflayer</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (deflayer sym)
+       (deflayer sym requires)
+</pre>
+  <pre id="var-docstr">Defines a Layer.
+The &lt;requires&gt; param must be a vector of layers that are required for this layer to work.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L31" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/deflayered">deflayered</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (deflayered sym &amp; extra)
+</pre>
+  <pre id="var-docstr">Defines a layered function. For the base definition, simply don't provide a layer.
+For layer-dependant definitions, pass a layer before the args vector and sexps.
+An optional doc-string can be provided for the base definition.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L76" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/layer?">layer?</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (layer? l)
+</pre>
+  <pre id="var-docstr"></pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L38" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/pop-layer">pop-layer</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (pop-layer)
+</pre>
+  <pre id="var-docstr">Pops the layer at the top of the Context Stack so it can't be used globally by all layered functions.
+Returns the popped layer.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L18" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/proceed">proceed</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (proceed layer &amp; args)
+</pre>
+  <pre id="var-docstr">Given a layer currently on the stack and args for the partial definition, runs the code and returns the result.
+Note #1: This fn can only be called inside a layered function.
+Note #2: To use the base definition, pass the :base keyword as the layer.
+Note #3: If no layer is given and the :base implementation is not requested,
+         it will look for the first definition it can find for the layers in the stack
+         by searching from the top to the bottom of the stack.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L40" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/push-layer">push-layer</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (push-layer layer)
+</pre>
+  <pre id="var-docstr">Pushes a layer onto the Context Stack to be used globally by all layered functions.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L14" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="heimdallr/with-context">with-context</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (with-context ctx &amp; forms)
+</pre>
+  <pre id="var-docstr">Executes the given forms inside the given context.
+In order to activate multiple layers at the same time, pass the layers as a vector (example: [layer-1, layer-2, ...])
+The latter layers will be nested inside the former ones as in:
+(layer-1
+  (layer-2
+    (layer-3 ...)))</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L60" id="var-source">Source</a>
+</div>
+
+
+</div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div id="foot">
+	  <div style="text-align: center;" id="copyright">Copyright 2011 Eduardo Julian</div>
+	</div>
+      </div>
+      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      Clojure auto-documentation system by Tom Faulhaber.</div>
+    </div>
+    <!-- /AllContentContainer -->
+  </body>
+
+</html>
