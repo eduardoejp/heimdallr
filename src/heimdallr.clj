@@ -3,9 +3,10 @@
 ;Email: eduardoejp@gmail.com
 ;License: EPL 1.0 -> http://www.eclipse.org/legal/epl-v10.html
 
-(ns heimdallr
-  "Small lib for Context-Oriented Programming."
-  )
+(ns
+  #^{:author "Eduardo Emilio Julián Pereyra"
+     :doc "Small lib for Context-Oriented Programming."}
+  heimdallr)
 
 (def #^{:doc "This dynamic var holds the current Context Stack for a thread."}
   *context* (with-meta '() {:type ::ContextStack}))
@@ -69,7 +70,7 @@ The latter layers will be nested inside the former ones as in:
     `(with-context ~(first ctx) (with-context ~(if (> (count (rest ctx)) 1) (vec (rest ctx)) (fnext ctx)) ~@forms))
     `(let [reqs# ~ctx]
        (if (or (empty? (:requires reqs#)) (->> (:requires reqs#) (map eval) (map #(some (fn [~'c] (= % ~'c)) *context*)) (every? true?)))
-         (binding [*context* (conj *context* reqs#)] ~@forms)
+         (binding [*context* (if reqs# (conj *context* reqs#) *context*)] ~@forms)
          (throw (Exception. (str "The layer dependencies of <" (:name reqs#) ">, " (str (:requires reqs#)) " are not active in the Context Stack.")))))
     ))
 
