@@ -97,7 +97,7 @@ namespace.
   <pre id="var-docstr">This dynamic var holds the current Context Stack for a thread.</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L10" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L9" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -110,7 +110,7 @@ namespace.
 The &lt;requires&gt; param must be a vector of layers that are required for this layer to work.</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L31" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L30" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -123,7 +123,7 @@ For layer-dependant definitions, pass a layer before the args vector and sexps.
 An optional doc-string can be provided for the base definition.</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L76" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L75" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -134,7 +134,7 @@ An optional doc-string can be provided for the base definition.</pre>
   <pre id="var-docstr"></pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L38" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L37" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -146,7 +146,7 @@ An optional doc-string can be provided for the base definition.</pre>
 Returns the popped layer.</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L18" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L17" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -156,13 +156,13 @@ Returns the popped layer.</pre>
 </pre>
   <pre id="var-docstr">Given a layer currently on the stack and args for the partial definition, runs the code and returns the result.
 Note #1: This fn can only be called inside a layered function.
-Note #2: To use the base definition, pass the :base keyword as the layer.
-Note #3: If no layer is given and the :base implementation is not requested,
+Note #2: To use the base definition, pass the :default keyword as the layer.
+Note #3: If no layer is given and the :default implementation is not requested,
          it will look for the first definition it can find for the layers in the stack
          by searching from the top to the bottom of the stack.</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L40" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L39" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -173,7 +173,7 @@ Note #3: If no layer is given and the :base implementation is not requested,
   <pre id="var-docstr">Pushes a layer onto the Context Stack to be used globally by all layered functions.</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L14" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L13" id="var-source">Source</a>
 </div><div id="var-entry">
   <br />
   <hr />
@@ -189,7 +189,7 @@ The latter layers will be nested inside the former ones as in:
     (layer-3 ...)))</pre>
   
   
-  <a href="http://github.com/eduardoejp/heimdallr/blob/1d1e09161ffc68be761ec81d1aa2f338bb394333/src/heimdallr.clj#L60" id="var-source">Source</a>
+  <a href="http://github.com/eduardoejp/heimdallr/blob/bed2cf6e05780a0120232b40699c1821c1eab86c/src/heimdallr.clj#L59" id="var-source">Source</a>
 </div>
 
 
