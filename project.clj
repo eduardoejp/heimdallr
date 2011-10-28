@@ -1,12 +1,11 @@
-(defproject heimdallr "0.1.0"
+(defproject heimdallr "0.2.0"
   :description "Small lib for Context-Oriented Programming."
   :url "https://github.com/eduardoejp/heimdallr"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo
             :comments "same as Clojure"}
-  :dependencies [[org.clojure/clojure "1.2.0"]
-                 [org.clojure/clojure-contrib "1.2.0"]]
+  :dependencies [[org.clojure/clojure "1.3.0"]]
   :dev-dependencies [[org.clojars.rayne/autodoc "0.8.0-SNAPSHOT"]]
   :autodoc {:name "heimdallr"
             :description "Small lib for Context-Oriented Programming."
