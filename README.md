@@ -7,7 +7,7 @@ Heimdallr
 Usage
 -----
 
-Simply add this to your leiningen deps: `[heimdallr "0.1.0"]`
+Simply add this to your leiningen deps: `[heimdallr "0.2.0"]`
 
 Documentation
 ------------
@@ -17,8 +17,9 @@ The documentation can be found here: http://eduardoejp.github.com/heimdallr/
 Examples
 --------
 
-	(def *employer* {:name "Q-Box Technologies"})
-	(def *person* {:name "Eduardo Julián", :employer *employer*, :address "c/ Manuel Rodriguez Objío, Santo Domingo"})
+	(use 'heimdallr)
+	(def employer {:name "Q-Box Technologies"})
+	(def person {:name "Eduardo Julián", :employer employer, :address "c/ Manuel Rodriguez Objío, Santo Domingo"})
 
 	(deflayer employer-layer)
 	(deflayer address-layer)
@@ -27,16 +28,16 @@ Examples
 	(deflayered to-str employer-layer [person] (str (proceed person) "Employer: " (:name (:employer person)) "\n"))
 	(deflayered to-str address-layer [person] (str (proceed person) "Address: " (:address person) "\n"))
 
-	(print (to-str *person*))
+	(println (to-str person))
 
-	(with-context address-layer
-		(with-context employer-layer
-		  (print (to-str *person*))))
+	(with-layer address-layer
+	  (with-layer employer-layer
+	    (println (to-str person))))
 	
 	; The above code is the same as the following.
 	
-	(with-context [address-layer employer-layer]
-		(print (to-str *person*)))
+	(with-layer [address-layer employer-layer]
+	  (println (to-str person)))
 
 Further Information
 -------------------
